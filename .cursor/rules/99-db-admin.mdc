@@ -1,0 +1,22 @@
+---
+description: Database Setup & Administration
+globs: ["web/lib/db/**/*.ts", "web/src/app/**/actions.ts", "web/src/app/api/**/*.ts"]
+alwaysApply: false 
+---
+# Database Setup Instructions
+
+IF the user asks to "Setup Database" or "Initialize DB":
+
+1.  **Install**: `npm install better-sqlite3 tsx` (run from `web/` directory)
+2.  **Create Client** (`web/lib/db/client.ts`):
+    ```typescript
+    import Database from 'better-sqlite3';
+    import path from 'path';
+    const db = new Database(path.join(process.cwd(), 'data', 'app.db'));
+    db.pragma('journal_mode = WAL');
+    export default db;
+    ```
+3.  **Create Helper** (`web/lib/db/setup.ts`) to read `.sql` files from `web/lib/db/migrations/` and execute them.
+4.  **Add Script** to `web/package.json`: `"db:setup": "tsx lib/db/setup.ts"`
+
+**Note**: All paths are relative to the `web/` directory where the Next.js app lives.

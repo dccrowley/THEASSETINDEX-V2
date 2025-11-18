@@ -1,0 +1,19 @@
+---
+description: UI Design System & Component Guidelines
+globs: ["web/src/**/*.tsx", "web/src/app/**/*.tsx"]
+alwaysApply: false 
+---
+# UI Implementation
+- **Library**: Tailwind CSS + shadcn/ui + Lucide React.
+- **Font**: Inter or Geist Sans.
+
+# Color Token Mapping
+- Background: `bg-neutral-100` (#f4f4f4) or use CSS variable `var(--color-off-white)`
+- Card: `bg-white` or use CSS variable `var(--color-card)`
+- Accent: `text-blue-600` or use CSS variable `var(--color-accent)` (#2563eb)
+- Border: `border-neutral-200` or use CSS variable `var(--color-border)`
+
+# Components
+- **Buttons**: Sharp corners or small radius (`rounded-md`).
+- **Layout**: Fixed Sidebar (`w-[280px]`), Fixed Header (`h-[73px]`).
+- **CSS Variables**: Prefer CSS variables defined in `web/src/app/globals.css` for consistency.

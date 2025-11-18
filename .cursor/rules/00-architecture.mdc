@@ -1,0 +1,18 @@
+---
+description: Core Project Architecture & Stack
+globs: ["web/src/**/*.tsx", "web/src/**/*.ts"]
+alwaysApply: false 
+---
+## Project Identity
+**Name**: Lesson Asset Hub
+**Stack**: Next.js 14+, SQLite (local), Clerk Auth, Tailwind CSS.
+
+# 1. AI Behavior Rules (Strict)
+- **No ORMs**: Write raw SQL using `better-sqlite3`.
+- **Server Actions**: Use for all mutations.
+- **Strict Typing**: No `any`. Define interfaces for all DB rows.
+- **Refactoring**: If a file > 200 lines, refactor immediately.
+
+# 2. Database Path
+- Client: `web/lib/db/client.ts` (relative to project root)
+- SQLite File: `web/data/app.db` (relative to project root)
